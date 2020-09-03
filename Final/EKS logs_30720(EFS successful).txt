@@ -1,0 +1,863 @@
+Microsoft Windows [Version 10.0.17763.1217]
+(c) 2018 Microsoft Corporation. All rights reserved.
+
+C:\Users\eaakaka>helm --version
+Error: unknown flag: --version
+
+C:\Users\eaakaka>curl -sSL https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+'bash' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\eaakaka>helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+Error: Couldn't load repositories file (C:\Users\eaakaka\.helm\repository\repositories.yaml).
+You might need to run `helm init` (or `helm init --client-only` if tiller is already installed)
+
+C:\Users\eaakaka>helm init
+Creating C:\Users\eaakaka\.helm
+Creating C:\Users\eaakaka\.helm\repository
+Creating C:\Users\eaakaka\.helm\repository\cache
+Creating C:\Users\eaakaka\.helm\repository\local
+Creating C:\Users\eaakaka\.helm\plugins
+Creating C:\Users\eaakaka\.helm\starters
+Creating C:\Users\eaakaka\.helm\cache\archive
+Creating C:\Users\eaakaka\.helm\repository\repositories.yaml
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com
+Adding local repo with URL: http://127.0.0.1:8879/charts
+$HELM_HOME has been configured at C:\Users\eaakaka\.helm.
+Error: error installing: Post "https://E1DF39D59624800B5364677149373E32.sk1.ap-south-1.eks.amazonaws.com/apis/apps/v1/namespaces/kube-system/deployments": dial tcp: lookup E1DF39D59624800B5364677149373E32.sk1.ap-south-1.eks.amazonaws.com: no such host
+
+C:\Users\eaakaka>helm repo list
+NAME    URL
+stable  https://kubernetes-charts.storage.googleapis.com
+local   http://127.0.0.1:8879/charts
+
+C:\Users\eaakaka>helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+"stable" has been added to your repositories
+
+C:\Users\eaakaka>helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Skip local chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete.
+
+C:\Users\eaakaka>kubectl -n kube-system create serviceaccount tiller
+Unable to connect to the server: dial tcp: lookup E1DF39D59624800B5364677149373E32.sk1.ap-south-1.eks.amazonaws.com: no such host
+
+C:\Users\eaakaka>cd Desktop
+
+C:\Users\eaakaka\Desktop>dir
+ Volume in drive C is OSDisk
+ Volume Serial Number is 2210-500F
+
+ Directory of C:\Users\eaakaka\Desktop
+
+07/29/2020  10:51 AM    <DIR>          .
+07/29/2020  10:51 AM    <DIR>          ..
+12/20/2019  10:05 AM    <DIR>          .ipynb_checkpoints
+04/03/2020  04:40 PM             2,201 Atom.lnk
+06/10/2020  05:42 PM    <DIR>          AWS
+04/03/2020  03:03 PM               776 Daily activity.txt
+07/28/2020  09:41 PM    <DIR>          flutter_class
+12/09/2019  01:40 PM             2,485 Google Chrome.lnk
+04/19/2020  08:21 PM               815 gretl.lnk
+05/25/2020  11:35 PM    <DIR>          jenkinsDownload
+07/28/2020  11:37 AM    <DIR>          kube_code
+06/06/2020  03:33 PM             2,380 Microsoft Teams.lnk
+06/23/2020  12:05 AM    <DIR>          mlops-ws
+05/13/2020  04:28 PM    <DIR>          mycode
+05/10/2020  11:48 PM    <DIR>          myweb
+05/10/2020  11:51 PM    <DIR>          myweb1
+05/10/2020  11:51 PM    <DIR>          myweb2
+12/18/2019  12:15 PM               984 PDF Password Remover v3.1.lnk
+07/03/2020  01:10 AM           172,568 Pending Task_270117.txt
+05/25/2020  12:29 AM             1,027 PSPad.lnk
+03/29/2020  04:42 PM    <DIR>          Python
+02/17/2020  06:20 PM           558,141 Signoff_ 2019 cases_17022020.pdf
+04/03/2020  07:09 PM             1,044 Telegram.lnk
+06/24/2020  07:30 PM    <DIR>          unittesting
+05/04/2020  12:26 AM    <DIR>          web-jenkins
+12/09/2019  01:51 PM           836,521 Win 10 - Erica Certificate Installation.docx
+05/05/2020  04:30 PM    <DIR>          zzzz
+              11 File(s)      1,578,942 bytes
+              16 Dir(s)  10,830,397,440 bytes free
+
+C:\Users\eaakaka\Desktop>cd kube_code
+
+C:\Users\eaakaka\Desktop\kube_code>dir
+ Volume in drive C is OSDisk
+ Volume Serial Number is 2210-500F
+
+ Directory of C:\Users\eaakaka\Desktop\kube_code
+
+07/28/2020  11:37 AM    <DIR>          .
+07/28/2020  11:37 AM    <DIR>          ..
+07/26/2020  04:48 PM    <DIR>          cloudtask2
+07/28/2020  11:37 AM    <DIR>          cloudtask3
+07/26/2020  08:51 PM    <DIR>          cloudtask4
+05/22/2020  06:06 PM               104 db-secret.yml
+05/22/2020  03:32 PM               426 deploy.yml
+07/28/2020  01:39 PM    <DIR>          eks_class_code
+05/20/2020  01:40 PM               206 kustomization.yaml
+05/24/2020  01:00 PM             1,238 mysql-deployment.yaml
+05/22/2020  06:01 PM               375 pod-mysql.yml
+05/18/2020  04:19 PM               169 pod1 - bkp.yml
+05/16/2020  05:32 PM               124 pod1.txt
+05/22/2020  05:31 PM               358 pod1.yml
+05/23/2020  08:24 PM               164 podsvc.yml
+05/19/2020  04:17 PM               300 rc1.yml
+05/21/2020  04:58 PM               396 rs1 - bkp.yml
+05/21/2020  06:16 PM               423 rs1.yml
+05/23/2020  07:25 PM                 0 svc.txt
+05/23/2020  08:41 PM               224 svc.yml
+05/24/2020  01:14 PM    <DIR>          Vimal Drive
+05/22/2020  04:56 PM               195 web-pvc.yml
+05/24/2020  12:59 PM             1,332 wordpress-deployment.yaml
+05/24/2020  12:35 PM    <DIR>          wordpressbkpyaml file_AK
+              16 File(s)          6,034 bytes
+               8 Dir(s)  10,830,393,344 bytes free
+
+C:\Users\eaakaka\Desktop\kube_code>cd eks_class_code
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>dir
+ Volume in drive C is OSDisk
+ Volume Serial Number is 2210-500F
+
+ Directory of C:\Users\eaakaka\Desktop\kube_code\eks_class_code
+
+07/28/2020  01:39 PM    <DIR>          .
+07/28/2020  01:39 PM    <DIR>          ..
+07/14/2020  09:49 AM    <DIR>          .terraform
+07/28/2020  12:14 PM               354 cluster.yml
+07/29/2020  11:44 AM             2,199 efs.yml
+07/12/2020  01:32 AM             1,464 key0720.ppk
+07/09/2020  04:22 PM             1,422 key1.ppk
+07/12/2020  01:31 AM             1,674 key1a.pem
+07/28/2020  01:04 PM               206 kustomization.yml
+07/28/2020  01:03 PM             1,325 mysql-deploy.yaml
+07/10/2020  01:15 PM               490 pvc.yml
+07/28/2020  01:40 PM               290 rbac.yml
+07/10/2020  12:56 PM               301 role.yml
+07/28/2020  01:42 PM               603 storage.yml
+07/16/2020  12:26 AM               158 terraform.tfstate
+07/16/2020  12:25 AM            21,526 terraform.tfstate.backup
+07/28/2020  01:02 PM             1,405 wordpress-deploy.yaml
+              14 File(s)         33,417 bytes
+               3 Dir(s)  10,830,458,880 bytes free
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>eksctl create cluster -f cluster.yml
+[?]  eksctl version 0.21.0
+[?]  using region ap-south-1
+[?]  setting availability zones to [ap-south-1b ap-south-1c ap-south-1a]
+[?]  subnets for ap-south-1b - public:192.168.0.0/19 private:192.168.96.0/19
+[?]  subnets for ap-south-1c - public:192.168.32.0/19 private:192.168.128.0/19
+[?]  subnets for ap-south-1a - public:192.168.64.0/19 private:192.168.160.0/19
+[?]  nodegroup "ng1" will use "ami-017cd1c6bec820e9d" [AmazonLinux2/1.16]
+[?]  using EC2 key pair "key1a"
+[?]  nodegroup "ng2" will use "ami-017cd1c6bec820e9d" [AmazonLinux2/1.16]
+[?]  using EC2 key pair "key1a"
+[?]  using Kubernetes version 1.16
+[?]  creating EKS cluster "akcluster" in "ap-south-1" region with un-managed nodes
+[?]  2 nodegroups (ng1, ng2) were included (based on the include/exclude rules)
+[?]  will create a CloudFormation stack for cluster itself and 2 nodegroup stack(s)
+[?]  will create a CloudFormation stack for cluster itself and 0 managed nodegroup stack(s)
+[?]  if you encounter any issues, check CloudFormation console or try 'eksctl utils describe-stacks --region=ap-south-1 --cluster=akcluster'
+[?]  CloudWatch logging will not be enabled for cluster "akcluster" in "ap-south-1"
+[?]  you can enable it with 'eksctl utils update-cluster-logging --region=ap-south-1 --cluster=akcluster'
+[?]  Kubernetes API endpoint access will use default of {publicAccess=true, privateAccess=false} for cluster "akcluster" in "ap-south-1"
+[?]  2 sequential tasks: { create cluster control plane "akcluster", 2 sequential sub-tasks: { no tasks, 2 parallel sub-tasks: { create nodegroup "ng1", create nodegroup "ng2" } } }
+[?]  building cluster stack "eksctl-akcluster-cluster"
+[?]  deploying stack "eksctl-akcluster-cluster"
+[?]  building nodegroup stack "eksctl-akcluster-nodegroup-ng1"
+[?]  building nodegroup stack "eksctl-akcluster-nodegroup-ng1"
+[[?]  --nodes-min=2 was set automatically for nodegroup ng2
+?]  --nodes-max=2 was set automatically for nodegroup ng1
+[?]  --nodes-max=2 was set automatically for nodegroup ng2
+[?]  --nodes-max=2 was set automatically for nodegroup ng2
+[?]  deploying stack "eksctl-akcluster-nodegroup-ng1"
+[?]  deploying stack "eksctl-akcluster-nodegroup-ng2"
+[?]  waiting for the control plane availability...
+[!]  unable to write kubeconfig , please retry with 'eksctl utils write-kubeconfig -n akcluster': unable to read existing kubeconfig file "C:\\Users\\eaakaka/.kube/config": error loading config file "C:\Users\eaakaka/.kube/config": read C:\Users\eaakaka/.kube/config: The process cannot access the file because another process has locked a portion of the file.
+[?]  no tasks
+[?]  all EKS cluster resources for "akcluster" have been created
+[?]  adding identity "arn:aws:iam::904427444514:role/eksctl-akcluster-nodegroup-ng1-NodeInstanceRole-1KUSR5RN2S252" to auth ConfigMap
+[?]  nodegroup "ng1" has 0 node(s)
+[?]  waiting for at least 2 node(s) to become ready in "ng1"
+[?]  nodegroup "ng1" has 2 node(s)
+[?]  node "ip-192-168-13-169.ap-south-1.compute.internal" is ready
+[?]  node "ip-192-168-85-91.ap-south-1.compute.internal" is ready
+[?]  adding identity "arn:aws:iam::904427444514:role/eksctl-akcluster-nodegroup-ng2-NodeInstanceRole-1MKH5JYZV93RH" to auth ConfigMap
+[?]  nodegroup "ng2" has 0 node(s)
+[?]  waiting for at least 2 node(s) to become ready in "ng2"
+[?]  nodegroup "ng2" has 2 node(s)
+[?]  node "ip-192-168-3-57.ap-south-1.compute.internal" is ready
+[?]  node "ip-192-168-64-74.ap-south-1.compute.internal" is ready
+[?]  EKS cluster "akcluster" in "ap-south-1" region is ready
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl create -k .
+Unable to connect to the server: dial tcp: lookup E1DF39D59624800B5364677149373E32.sk1.ap-south-1.eks.amazonaws.com: no such host
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl create -k .
+Unable to connect to the server: dial tcp: lookup E1DF39D59624800B5364677149373E32.sk1.ap-south-1.eks.amazonaws.com: no such host
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>aws eks update-kubeconfig --name akcluster
+
+Cluster status not active
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>aws eks update-kubeconfig --name akcluster
+Updated context arn:aws:eks:ap-south-1:904427444514:cluster/akcluster in C:\Users\eaakaka\.kube\config
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl create -k .
+secret/mysql-pass-ctm2f4889c created
+service/wordpress-mysql created
+service/wordpress created
+deployment.apps/wordpress-mysql created
+deployment.apps/wordpress created
+persistentvolumeclaim/mysql-pv-cliam created
+persistentvolumeclaim/wp-pv-cliam created
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get --all
+Error: unknown flag: --all
+See 'kubectl get --help' for usage.
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get all
+NAME                                   READY   STATUS              RESTARTS   AGE
+pod/wordpress-5ddc8c98b-xqw4c          0/1     ContainerCreating   0          20s
+pod/wordpress-mysql-7b8cdcc868-zh9d4   0/1     ContainerCreating   0          20s
+
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP                                                                PORT(S)        AGE
+service/kubernetes        ClusterIP      10.100.0.1      <none>                                                                     443/TCP        113m
+service/wordpress         LoadBalancer   10.100.67.188   a00f09f82ee744479858bfb752700f5e-1425202980.ap-south-1.elb.amazonaws.com   80:31898/TCP   20s
+service/wordpress-mysql   ClusterIP      None            <none>                                                                     3306/TCP       20s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/wordpress         0/1     1            0           20s
+deployment.apps/wordpress-mysql   0/1     1            0           20s
+
+NAME                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/wordpress-5ddc8c98b          1         1         0       20s
+replicaset.apps/wordpress-mysql-7b8cdcc868   1         1         0       20s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get all
+NAME                                   READY   STATUS              RESTARTS   AGE
+pod/wordpress-5ddc8c98b-xqw4c          0/1     ContainerCreating   0          28s
+pod/wordpress-mysql-7b8cdcc868-zh9d4   0/1     ContainerCreating   0          28s
+
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP                                                                PORT(S)        AGE
+service/kubernetes        ClusterIP      10.100.0.1      <none>                                                                     443/TCP        113m
+service/wordpress         LoadBalancer   10.100.67.188   a00f09f82ee744479858bfb752700f5e-1425202980.ap-south-1.elb.amazonaws.com   80:31898/TCP   28s
+service/wordpress-mysql   ClusterIP      None            <none>                                                                     3306/TCP       28s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/wordpress         0/1     1            0           28s
+deployment.apps/wordpress-mysql   0/1     1            0           28s
+
+NAME                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/wordpress-5ddc8c98b          1         1         0       28s
+replicaset.apps/wordpress-mysql-7b8cdcc868   1         1         0       28s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get all
+NAME                                   READY   STATUS              RESTARTS   AGE
+pod/wordpress-5ddc8c98b-xqw4c          0/1     ContainerCreating   0          37s
+pod/wordpress-mysql-7b8cdcc868-zh9d4   0/1     ContainerCreating   0          37s
+
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP                                                                PORT(S)        AGE
+service/kubernetes        ClusterIP      10.100.0.1      <none>                                                                     443/TCP        113m
+service/wordpress         LoadBalancer   10.100.67.188   a00f09f82ee744479858bfb752700f5e-1425202980.ap-south-1.elb.amazonaws.com   80:31898/TCP   37s
+service/wordpress-mysql   ClusterIP      None            <none>                                                                     3306/TCP       37s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/wordpress         0/1     1            0           37s
+deployment.apps/wordpress-mysql   0/1     1            0           37s
+
+NAME                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/wordpress-5ddc8c98b          1         1         0       38s
+replicaset.apps/wordpress-mysql-7b8cdcc868   1         1         0       38s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad kustomization.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>dir
+ Volume in drive C is OSDisk
+ Volume Serial Number is 2210-500F
+
+ Directory of C:\Users\eaakaka\Desktop\kube_code\eks_class_code
+
+07/28/2020  01:39 PM    <DIR>          .
+07/28/2020  01:39 PM    <DIR>          ..
+07/14/2020  09:49 AM    <DIR>          .terraform
+07/28/2020  12:14 PM               354 cluster.yml
+07/29/2020  11:44 AM             2,199 efs.yml
+07/12/2020  01:32 AM             1,464 key0720.ppk
+07/09/2020  04:22 PM             1,422 key1.ppk
+07/12/2020  01:31 AM             1,674 key1a.pem
+07/28/2020  01:04 PM               206 kustomization.yml
+07/28/2020  01:03 PM             1,325 mysql-deploy.yaml
+07/10/2020  01:15 PM               490 pvc.yml
+07/28/2020  01:40 PM               290 rbac.yml
+07/10/2020  12:56 PM               301 role.yml
+07/28/2020  01:42 PM               603 storage.yml
+07/16/2020  12:26 AM               158 terraform.tfstate
+07/16/2020  12:25 AM            21,526 terraform.tfstate.backup
+07/28/2020  01:02 PM             1,405 wordpress-deploy.yaml
+              14 File(s)         33,417 bytes
+               3 Dir(s)  10,205,954,048 bytes free
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad storage.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad kustomization.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get all
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/wordpress-5ddc8c98b-xqw4c          1/1     Running   0          2m29s
+pod/wordpress-mysql-7b8cdcc868-zh9d4   1/1     Running   0          2m29s
+
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP                                                                PORT(S)        AGE
+service/kubernetes        ClusterIP      10.100.0.1      <none>                                                                     443/TCP        115m
+service/wordpress         LoadBalancer   10.100.67.188   a00f09f82ee744479858bfb752700f5e-1425202980.ap-south-1.elb.amazonaws.com   80:31898/TCP   2m29s
+service/wordpress-mysql   ClusterIP      None            <none>                                                                     3306/TCP       2m29s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/wordpress         1/1     1            1           2m29s
+deployment.apps/wordpress-mysql   1/1     1            1           2m29s
+
+NAME                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/wordpress-5ddc8c98b          1         1         1       2m29s
+replicaset.apps/wordpress-mysql-7b8cdcc868   1         1         1       2m29s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad kustomization.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl create -k .
+storageclass.storage.k8s.io/aws-efs created
+persistentvolumeclaim/efs-mysql created
+persistentvolumeclaim/efs-wordpress created
+Error from server (AlreadyExists): error when creating ".": secrets "mysql-pass-ctm2f4889c" already exists
+Error from server (AlreadyExists): error when creating ".": services "wordpress-mysql" already exists
+Error from server (AlreadyExists): error when creating ".": services "wordpress" already exists
+Error from server (AlreadyExists): error when creating ".": deployments.apps "wordpress-mysql" already exists
+Error from server (AlreadyExists): error when creating ".": deployments.apps "wordpress" already exists
+Error from server (AlreadyExists): error when creating ".": persistentvolumeclaims "mysql-pv-cliam" already exists
+Error from server (AlreadyExists): error when creating ".": persistentvolumeclaims "wp-pv-cliam" already exists
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get all
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/wordpress-5ddc8c98b-xqw4c          1/1     Running   0          3m23s
+pod/wordpress-mysql-7b8cdcc868-zh9d4   1/1     Running   0          3m23s
+
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP                                                                PORT(S)        AGE
+service/kubernetes        ClusterIP      10.100.0.1      <none>                                                                     443/TCP        116m
+service/wordpress         LoadBalancer   10.100.67.188   a00f09f82ee744479858bfb752700f5e-1425202980.ap-south-1.elb.amazonaws.com   80:31898/TCP   3m23s
+service/wordpress-mysql   ClusterIP      None            <none>                                                                     3306/TCP       3m23s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/wordpress         1/1     1            1           3m23s
+deployment.apps/wordpress-mysql   1/1     1            1           3m23s
+
+NAME                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/wordpress-5ddc8c98b          1         1         1       3m23s
+replicaset.apps/wordpress-mysql-7b8cdcc868   1         1         1       3m23s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get all
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/wordpress-5ddc8c98b-xqw4c          1/1     Running   0          3m35s
+pod/wordpress-mysql-7b8cdcc868-zh9d4   1/1     Running   0          3m35s
+
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP                                                                PORT(S)        AGE
+service/kubernetes        ClusterIP      10.100.0.1      <none>                                                                     443/TCP        116m
+service/wordpress         LoadBalancer   10.100.67.188   a00f09f82ee744479858bfb752700f5e-1425202980.ap-south-1.elb.amazonaws.com   80:31898/TCP   3m35s
+service/wordpress-mysql   ClusterIP      None            <none>                                                                     3306/TCP       3m35s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/wordpress         1/1     1            1           3m35s
+deployment.apps/wordpress-mysql   1/1     1            1           3m35s
+
+NAME                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/wordpress-5ddc8c98b          1         1         1       3m35s
+replicaset.apps/wordpress-mysql-7b8cdcc868   1         1         1       3m35s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get pvc
+NAME             STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+efs-mysql        Pending                                                                        aws-efs        72s
+efs-wordpress    Pending                                                                        aws-efs        71s
+mysql-pv-cliam   Bound     pvc-447b73fd-2e09-4219-b86b-4bf937acdb32   10Gi       RWO            gp2            4m14s
+wp-pv-cliam      Bound     pvc-1ad90656-73c6-4f44-86bf-10e5513badaf   5Gi        RWO            gp2            4m14s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get pods
+NAME                               READY   STATUS    RESTARTS   AGE
+wordpress-5ddc8c98b-xqw4c          1/1     Running   0          4m47s
+wordpress-mysql-7b8cdcc868-zh9d4   1/1     Running   0          4m47s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get services
+NAME              TYPE           CLUSTER-IP      EXTERNAL-IP                                                                PORT(S)        AGE
+kubernetes        ClusterIP      10.100.0.1      <none>                                                                     443/TCP        118m
+wordpress         LoadBalancer   10.100.67.188   a00f09f82ee744479858bfb752700f5e-1425202980.ap-south-1.elb.amazonaws.com   80:31898/TCP   5m2s
+wordpress-mysql   ClusterIP      None            <none>                                                                     3306/TCP       5m2s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get secrets
+NAME                    TYPE                                  DATA   AGE
+default-token-hrbrp     kubernetes.io/service-account-token   3      118m
+mysql-pass-ctm2f4889c   Opaque                                1      5m25s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>dir
+ Volume in drive C is OSDisk
+ Volume Serial Number is 2210-500F
+
+ Directory of C:\Users\eaakaka\Desktop\kube_code\eks_class_code
+
+07/28/2020  01:39 PM    <DIR>          .
+07/28/2020  01:39 PM    <DIR>          ..
+07/14/2020  09:49 AM    <DIR>          .terraform
+07/28/2020  12:14 PM               354 cluster.yml
+07/29/2020  11:44 AM             2,199 efs.yml
+07/12/2020  01:32 AM             1,464 key0720.ppk
+07/09/2020  04:22 PM             1,422 key1.ppk
+07/12/2020  01:31 AM             1,674 key1a.pem
+07/30/2020  12:06 PM               223 kustomization.yml
+07/28/2020  01:03 PM             1,325 mysql-deploy.yaml
+07/10/2020  01:15 PM               490 pvc.yml
+07/28/2020  01:40 PM               290 rbac.yml
+07/10/2020  12:56 PM               301 role.yml
+07/28/2020  01:42 PM               603 storage.yml
+07/16/2020  12:26 AM               158 terraform.tfstate
+07/16/2020  12:25 AM            21,526 terraform.tfstate.backup
+07/28/2020  01:02 PM             1,405 wordpress-deploy.yaml
+              14 File(s)         33,434 bytes
+               3 Dir(s)   9,343,418,368 bytes free
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad efs.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad storage.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad efs.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad pvc.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl delete all --all
+pod "wordpress-5ddc8c98b-xqw4c" deleted
+pod "wordpress-mysql-7b8cdcc868-zh9d4" deleted
+service "kubernetes" deleted
+service "wordpress" deleted
+service "wordpress-mysql" deleted
+deployment.apps "wordpress" deleted
+deployment.apps "wordpress-mysql" deleted
+replicaset.apps "wordpress-5ddc8c98b" deleted
+replicaset.apps "wordpress-mysql-7b8cdcc868" deleted
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad storage.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl create -k .
+service/wordpress-mysql created
+service/wordpress created
+deployment.apps/wordpress-mysql created
+deployment.apps/wordpress created
+Error from server (AlreadyExists): error when creating ".": storageclasses.storage.k8s.io "aws-efs" already exists
+Error from server (AlreadyExists): error when creating ".": secrets "mysql-pass-ctm2f4889c" already exists
+Error from server (AlreadyExists): error when creating ".": persistentvolumeclaims "efs-mysql" already exists
+Error from server (AlreadyExists): error when creating ".": persistentvolumeclaims "efs-wordpress" already exists
+Error from server (AlreadyExists): error when creating ".": persistentvolumeclaims "mysql-pv-cliam" already exists
+Error from server (AlreadyExists): error when creating ".": persistentvolumeclaims "wp-pv-cliam" already exists
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get all --all
+Error: unknown flag: --all
+See 'kubectl get --help' for usage.
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get all
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/wordpress-5ddc8c98b-n2wnj          1/1     Running   0          47s
+pod/wordpress-mysql-7b8cdcc868-p5nzh   1/1     Running   0          47s
+
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP                                                              PORT(S)        AGE
+service/kubernetes        ClusterIP      10.100.0.1      <none>                                                                   443/TCP        100s
+service/wordpress         LoadBalancer   10.100.50.214   ad2c0db07c3704043b35645ce00eeced-68897449.ap-south-1.elb.amazonaws.com   80:30247/TCP   47s
+service/wordpress-mysql   ClusterIP      None            <none>                                                                   3306/TCP       47s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/wordpress         1/1     1            1           47s
+deployment.apps/wordpress-mysql   1/1     1            1           47s
+
+NAME                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/wordpress-5ddc8c98b          1         1         1       47s
+replicaset.apps/wordpress-mysql-7b8cdcc868   1         1         1       47s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad role.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad storage.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl edit sc gp2
+storageclass.storage.k8s.io/gp2 edited
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>notepad kustomization.yml
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>dir
+ Volume in drive C is OSDisk
+ Volume Serial Number is 2210-500F
+
+ Directory of C:\Users\eaakaka\Desktop\kube_code\eks_class_code
+
+07/28/2020  01:39 PM    <DIR>          .
+07/28/2020  01:39 PM    <DIR>          ..
+07/14/2020  09:49 AM    <DIR>          .terraform
+07/28/2020  12:14 PM               354 cluster.yml
+07/30/2020  12:07 PM             2,197 efs.yml
+07/12/2020  01:32 AM             1,464 key0720.ppk
+07/09/2020  04:22 PM             1,422 key1.ppk
+07/12/2020  01:31 AM             1,674 key1a.pem
+07/30/2020  12:06 PM               223 kustomization.yml
+07/28/2020  01:03 PM             1,325 mysql-deploy.yaml
+07/30/2020  12:09 PM               482 pvc.yml
+07/28/2020  01:40 PM               290 rbac.yml
+07/30/2020  12:13 PM               293 role.yml
+07/30/2020  12:14 PM               603 storage.yml
+07/16/2020  12:26 AM               158 terraform.tfstate
+07/16/2020  12:25 AM            21,526 terraform.tfstate.backup
+07/28/2020  01:02 PM             1,405 wordpress-deploy.yaml
+              14 File(s)         33,416 bytes
+               3 Dir(s)   9,752,248,320 bytes free
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl create -k .
+Traceback (most recent call last):
+  File "c:\codebuild\tmp\output\src147615803\src\repos\awscli\.tox\exe\lib\site-packages\PyInstaller\loader\pyimod03_importers.py", line 438, in get_code
+  File "c:\codebuild\tmp\output\src147615803\src\repos\awscli\.tox\exe\lib\site-packages\PyInstaller\loader\pyimod02_archive.py", line 365, in extract
+  File "c:\codebuild\tmp\output\src147615803\src\repos\awscli\.tox\exe\lib\site-packages\PyInstaller\loader\pyimod02_archive.py", line 97, in __enter__
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "aws", line 27, in <module>
+  File "aws", line 23, in main
+  File "lib\site-packages\awscli\clidriver.py", line 90, in main
+  File "lib\site-packages\awscli\clidriver.py", line 100, in create_clidriver
+  File "lib\site-packages\awscli\plugin.py", line 48, in load_plugins
+  File "lib\site-packages\awscli\plugin.py", line 62, in _load_plugins
+  File "lib\site-packages\awscli\plugin.py", line 76, in _import_plugins
+  File "c:\codebuild\tmp\output\src147615803\src\repos\awscli\.tox\exe\lib\site-packages\PyInstaller\loader\pyimod03_importers.py", line 627, in exec_module
+  File "lib\site-packages\awscli\handlers.py", line 42, in <module>
+  File "c:\codebuild\tmp\output\src147615803\src\repos\awscli\.tox\exe\lib\site-packages\PyInstaller\loader\pyimod03_importers.py", line 607, in exec_module
+  File "c:\codebuild\tmp\output\src147615803\src\repos\awscli\.tox\exe\lib\site-packages\PyInstaller\loader\pyimod03_importers.py", line 440, in get_code
+
+ImportError: Loader FrozenImporter cannot handle module awscli.customizations.dynamodb.ddb
+[C:\Users\eaakaka\Desktop\kube_code\eks_class_code>4388] Failed to execute script aws
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl apply -k .
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+storageclass.storage.k8s.io/aws-efs configured
+clusterrolebinding.rbac.authorization.k8s.io/nfs-provisioner-role-binding created
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+secret/mysql-pass-ctm2f4889c configured
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+service/wordpress-mysql configured
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+service/wordpress configured
+deployment.apps/efs-provisioner created
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+deployment.apps/wordpress-mysql configured
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+deployment.apps/wordpress configured
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+persistentvolumeclaim/efs-mysql configured
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+persistentvolumeclaim/efs-wordpress configured
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+persistentvolumeclaim/mysql-pv-cliam configured
+Warning: kubectl apply should be used on resource created by either kubectl create --save-config or kubectl apply
+persistentvolumeclaim/wp-pv-cliam configured
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get pvc
+NAME             STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+efs-mysql        Pending                                                                        aws-efs        38m
+efs-wordpress    Pending                                                                        aws-efs        38m
+mysql-pv-cliam   Bound     pvc-447b73fd-2e09-4219-b86b-4bf937acdb32   10Gi       RWO            gp2            41m
+wp-pv-cliam      Bound     pvc-1ad90656-73c6-4f44-86bf-10e5513badaf   5Gi        RWO            gp2            41m
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get pvc
+NAME             STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+efs-mysql        Pending                                                                        aws-efs        38m
+efs-wordpress    Pending                                                                        aws-efs        38m
+mysql-pv-cliam   Bound     pvc-447b73fd-2e09-4219-b86b-4bf937acdb32   10Gi       RWO            gp2            42m
+wp-pv-cliam      Bound     pvc-1ad90656-73c6-4f44-86bf-10e5513badaf   5Gi        RWO            gp2            42m
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get pvc
+NAME             STATUS    VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
+efs-mysql        Pending                                                                        aws-efs        39m
+efs-wordpress    Pending                                                                        aws-efs        39m
+mysql-pv-cliam   Bound     pvc-447b73fd-2e09-4219-b86b-4bf937acdb32   10Gi       RWO            gp2            42m
+wp-pv-cliam      Bound     pvc-1ad90656-73c6-4f44-86bf-10e5513badaf   5Gi        RWO            gp2            42m
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get pods
+NAME                               READY   STATUS    RESTARTS   AGE
+efs-provisioner-564cf6cd67-vmxws   1/1     Running   0          2m2s
+wordpress-5ddc8c98b-n2wnj          1/1     Running   0          6m53s
+wordpress-mysql-7b8cdcc868-p5nzh   1/1     Running   0          6m53s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get all
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/efs-provisioner-564cf6cd67-vmxws   1/1     Running   0          2m16s
+pod/wordpress-5ddc8c98b-n2wnj          1/1     Running   0          7m7s
+pod/wordpress-mysql-7b8cdcc868-p5nzh   1/1     Running   0          7m7s
+
+NAME                      TYPE           CLUSTER-IP      EXTERNAL-IP                                                              PORT(S)        AGE
+service/kubernetes        ClusterIP      10.100.0.1      <none>                                                                   443/TCP        8m
+service/wordpress         LoadBalancer   10.100.50.214   ad2c0db07c3704043b35645ce00eeced-68897449.ap-south-1.elb.amazonaws.com   80:30247/TCP   7m7s
+service/wordpress-mysql   ClusterIP      None            <none>                                                                   3306/TCP       7m7s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/efs-provisioner   1/1     1            1           2m16s
+deployment.apps/wordpress         1/1     1            1           7m7s
+deployment.apps/wordpress-mysql   1/1     1            1           7m7s
+
+NAME                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/efs-provisioner-564cf6cd67   1         1         1       2m16s
+replicaset.apps/wordpress-5ddc8c98b          1         1         1       7m7s
+replicaset.apps/wordpress-mysql-7b8cdcc868   1         1         1       7m7s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Skip local chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete.
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl -n kube-system create serviceaccount tiller
+serviceaccount/tiller created
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl create clusterrolebinding tiller --clusterrole cluster-admin --serviceaccount=kube-system:tiller
+clusterrolebinding.rbac.authorization.k8s.io/tiller created
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get pods --namespace kube-system
+NAME                       READY   STATUS    RESTARTS   AGE
+aws-node-826wq             1/1     Running   0          156m
+aws-node-k4dps             1/1     Running   0          156m
+aws-node-mr2wg             1/1     Running   0          155m
+aws-node-z2d55             1/1     Running   0          155m
+coredns-6856799b8d-669hx   1/1     Running   0          162m
+coredns-6856799b8d-wtvhm   1/1     Running   0          162m
+kube-proxy-5tx66           1/1     Running   0          155m
+kube-proxy-74srb           1/1     Running   0          156m
+kube-proxy-xn4w5           1/1     Running   0          156m
+kube-proxy-zcn6n           1/1     Running   0          155m
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl create namespace prometheus
+namespace/prometheus created
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install  stable/prometheus     --namespace prometheus     --set alertmanager.persistentVolume.storageClass="gp2"     --set server.persistentVolume.storageClass="gp2"
+Error: could not find tiller
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install prometheus stable/prometheus --namespace prometheus --set alertmanager.persistentVolume.storageClass="gp2" --set server.persistentVolume.storageClass="gp2"
+Error: could not find tiller
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubetcl get all -n prometheus
+'kubetcl' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get all -n prometheus
+No resources found in prometheus namespace.
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm completion bash >> ~/.bash_completion
+The system cannot find the path specified.
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm init --wait
+$HELM_HOME has been configured at C:\Users\eaakaka\.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
+
+Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
+To prevent this, run `helm init` with the --tiller-tls-verify flag.
+For more information on securing your installation see: https://v2.helm.sh/docs/securing_installation/
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install prometheus stable/prometheus --namespace prometheus --set alertmanager.persistentVolume.storageClass="gp2" --set server.persistentVolume.storageClass="gp2"
+Error: This command needs 1 argument: chart name
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm version
+Client: &version.Version{SemVer:"v2.16.9", GitCommit:"8ad7037828e5a0fca1009dabe290130da6368e39", GitTreeState:"clean"}
+Server: &version.Version{SemVer:"v2.16.9", GitCommit:"8ad7037828e5a0fca1009dabe290130da6368e39", GitTreeState:"clean"}
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install ./mychart
+Error: path "./mychart" not found
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install full_coral ./mychart
+Error: This command needs 1 argument: chart name
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm version
+Client: &version.Version{SemVer:"v2.16.9", GitCommit:"8ad7037828e5a0fca1009dabe290130da6368e39", GitTreeState:"clean"}
+Server: &version.Version{SemVer:"v2.16.9", GitCommit:"8ad7037828e5a0fca1009dabe290130da6368e39", GitTreeState:"clean"}
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install --name full_coral ./mychart
+Error: path "./mychart" not found
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm search hub
+NAME                    CHART VERSION   APP VERSION     DESCRIPTION
+stable/hubot            1.0.1           3.3.2           Hubot chatbot for Slack
+stable/eventrouter      0.3.0           0.3             A Helm chart for eventruter (https://github.com/heptiolab...
+stable/mercure          4.0.1           0.10.0          The Mercure hub allows to push data updates using the Mer...
+stable/oauth2-proxy     3.2.2           5.1.0           A reverse proxy that provides authentication with Google,...
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm search repo
+NAME                    CHART VERSION   APP VERSION     DESCRIPTION
+stable/jasperreports    7.0.11          7.2.0           DEPRECATED The JasperReports server can be used as a stan...
+stable/artifactory      7.3.1           6.1.0           DEPRECATED Universal Repository Manager supporting all ma...
+stable/artifactory-ha   0.4.1           6.2.0           DEPRECATED Universal Repository Manager supporting all ma...
+stable/chartmuseum      2.13.1          0.12.0          Host your own Helm Chart Repository
+stable/dmarc2logstash   1.3.1           1.0.3           DEPRECATED Provides a POP3-polled DMARC XML report inject...
+stable/pgadmin          1.2.3           4.18.0          DEPRECATED - moved to new repo, see source for new location
+stable/satisfy          1.0.0           3.0.4           Composer repo hosting with Satisfy
+stable/sentry           4.3.0           9.1.2           Sentry is a cross-platform crash reporting and aggregatio...
+stable/sonatype-nexus   1.23.1          3.20.1-01       DEPRECATED - Sonatype Nexus is an open source repository ...
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+"stable" has been added to your repositories
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm search repo
+NAME                    CHART VERSION   APP VERSION     DESCRIPTION
+stable/jasperreports    7.0.11          7.2.0           DEPRECATED The JasperReports server can be used as a stan...
+stable/artifactory      7.3.1           6.1.0           DEPRECATED Universal Repository Manager supporting all ma...
+stable/artifactory-ha   0.4.1           6.2.0           DEPRECATED Universal Repository Manager supporting all ma...
+stable/chartmuseum      2.13.1          0.12.0          Host your own Helm Chart Repository
+stable/dmarc2logstash   1.3.1           1.0.3           DEPRECATED Provides a POP3-polled DMARC XML report inject...
+stable/pgadmin          1.2.3           4.18.0          DEPRECATED - moved to new repo, see source for new location
+stable/satisfy          1.0.0           3.0.4           Composer repo hosting with Satisfy
+stable/sentry           4.3.0           9.1.2           Sentry is a cross-platform crash reporting and aggregatio...
+stable/sonatype-nexus   1.23.1          3.20.1-01       DEPRECATED - Sonatype Nexus is an open source repository ...
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install prometheus stable/prometheus --namespace prometheus --set alertmanager.persistentVolume.storageClass="gp2" --set server.persistentVolume.storageClass="gp2"
+Error: This command needs 1 argument: chart name
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm repo list
+NAME    URL
+stable  https://kubernetes-charts.storage.googleapis.com/
+local   http://127.0.0.1:8879/charts
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install  stable/prometheus     --namespace prometheus     --set alertmanager.persistentVolume.storageClass="gp2"     --set server.persistentVolume.storageClass="gp2"
+Error: no available release name found
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install  stable/prometheus     --namespace prometheus     --set alertmanager.persistentVolume.storageClass="gp2"     --set server.persistentVolume.storageClass="gp2"
+Error: no available release name found
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm ls
+Error: configmaps is forbidden: User "system:serviceaccount:kube-system:default" cannot list resource "configmaps" in API group "" in the namespace "kube-system"
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get pods -n kube-system -o wide
+NAME                             READY   STATUS    RESTARTS   AGE     IP               NODE                                            NOMINATED NODE   READINESS GATES
+aws-node-826wq                   1/1     Running   0          3h4m    192.168.85.91    ip-192-168-85-91.ap-south-1.compute.internal    <none>           <none>
+aws-node-k4dps                   1/1     Running   0          3h3m    192.168.13.169   ip-192-168-13-169.ap-south-1.compute.internal   <none>           <none>
+aws-node-mr2wg                   1/1     Running   0          3h3m    192.168.3.57     ip-192-168-3-57.ap-south-1.compute.internal     <none>           <none>
+aws-node-z2d55                   1/1     Running   0          3h3m    192.168.64.74    ip-192-168-64-74.ap-south-1.compute.internal    <none>           <none>
+coredns-6856799b8d-669hx         1/1     Running   0          3h10m   192.168.83.113   ip-192-168-85-91.ap-south-1.compute.internal    <none>           <none>
+coredns-6856799b8d-wtvhm         1/1     Running   0          3h10m   192.168.75.12    ip-192-168-85-91.ap-south-1.compute.internal    <none>           <none>
+kube-proxy-5tx66                 1/1     Running   0          3h3m    192.168.64.74    ip-192-168-64-74.ap-south-1.compute.internal    <none>           <none>
+kube-proxy-74srb                 1/1     Running   0          3h4m    192.168.85.91    ip-192-168-85-91.ap-south-1.compute.internal    <none>           <none>
+kube-proxy-xn4w5                 1/1     Running   0          3h3m    192.168.13.169   ip-192-168-13-169.ap-south-1.compute.internal   <none>           <none>
+kube-proxy-zcn6n                 1/1     Running   0          3h3m    192.168.3.57     ip-192-168-3-57.ap-south-1.compute.internal     <none>           <none>
+tiller-deploy-6974685dbc-9kjs2   1/1     Running   0          18m     192.168.12.6     ip-192-168-13-169.ap-south-1.compute.internal   <none>           <none>
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get svc -n prometheus
+No resources found in prometheus namespace.
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Skip local chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete.
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install  stable/prometheus     --namespace prometheus     --set alertmanager.persistentVolume.storageClass="gp2"     --set server.persistentVolume.storageClass="gp2"
+Error: no available release name found
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install  --name my-release stable/prometheus     --namespace prometheus     --set alertmanager.persistentVolume.storageClass="gp2"     --set server.persistentVolume.storageClass="gp2"
+Error: release my-release failed: namespaces "prometheus" is forbidden: User "system:serviceaccount:kube-system:default" cannot get resource "namespaces" in API group "" in the namespace "prometheus"
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install --name my-release prometheus stable/prometheus --namespace prometheus --set alertmanager.persistentVolume.storageClass="gp2" --set server.persistentVolume.storageClass="gp2"
+Error: This command needs 1 argument: chart name
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install --name my-release stable/prometheus --namespace prometheus --set alertmanager.persistentVolume.storageClass="gp2" --set server.persistentVolume.storageClass="gp2"
+Error: release my-release failed: namespaces "prometheus" is forbidden: User "system:serviceaccount:kube-system:default" cannot get resource "namespaces" in API group "" in the namespace "prometheus"
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm reset --force
+Tiller (the Helm server-side component) has been uninstalled from your Kubernetes Cluster.
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm init --service-account tiller --upgrade -i registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:v2.7.0 --stable-repo-url https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
+$HELM_HOME has been configured at C:\Users\eaakaka\.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
+
+Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
+To prevent this, run `helm init` with the --tiller-tls-verify flag.
+For more information on securing your installation see: https://v2.helm.sh/docs/securing_installation/
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm version
+Client: &version.Version{SemVer:"v2.16.9", GitCommit:"8ad7037828e5a0fca1009dabe290130da6368e39", GitTreeState:"clean"}
+Error: could not find a ready tiller pod
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm reset --force
+Tiller (the Helm server-side component) has been uninstalled from your Kubernetes Cluster.
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm init
+$HELM_HOME has been configured at C:\Users\eaakaka\.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
+
+Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
+To prevent this, run `helm init` with the --tiller-tls-verify flag.
+For more information on securing your installation see: https://v2.helm.sh/docs/securing_installation/
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm repo list
+NAME    URL
+stable  https://kubernetes-charts.storage.googleapis.com/
+local   http://127.0.0.1:8879/charts
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm repo update
+Hang tight while we grab the latest from your chart repositories...
+...Skip local chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete.
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl -n kube-system create serviceaccount tiller
+Error from server (AlreadyExists): serviceaccounts "tiller" already exists
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl get pods --namespace kube-system
+NAME                             READY   STATUS    RESTARTS   AGE
+aws-node-826wq                   1/1     Running   0          3h23m
+aws-node-k4dps                   1/1     Running   0          3h22m
+aws-node-mr2wg                   1/1     Running   0          3h22m
+aws-node-z2d55                   1/1     Running   0          3h22m
+coredns-6856799b8d-669hx         1/1     Running   0          3h29m
+coredns-6856799b8d-wtvhm         1/1     Running   0          3h29m
+kube-proxy-5tx66                 1/1     Running   0          3h22m
+kube-proxy-74srb                 1/1     Running   0          3h23m
+kube-proxy-xn4w5                 1/1     Running   0          3h22m
+kube-proxy-zcn6n                 1/1     Running   0          3h22m
+tiller-deploy-6974685dbc-ccx2q   1/1     Running   0          85s
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install  stable/prometheus     --namespace prometheus     --set alertmanager.persistentVolume.storageClass="gp2"     --set server.persistentVolume.storageClass="gp2"
+Error: no available release name found
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install --name my-release stable/prometheus     --namespace prometheus     --set alertmanager.persistentVolume.storageClass="gp2"     --set server.persistentVolume.storageClass="gp2"
+Error: release my-release failed: namespaces "prometheus" is forbidden: User "system:serviceaccount:kube-system:default" cannot get resource "namespaces" in API group "" in the namespace "prometheus"
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm install --name my-release stable/prometheus
+Error: release my-release failed: namespaces "default" is forbidden: User "system:serviceaccount:kube-system:default" cannot get resource "namespaces" in API group "" in the namespace "default"
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>helm list
+Error: configmaps is forbidden: User "system:serviceaccount:kube-system:default" cannot list resource "configmaps" in API group "" in the namespace "kube-system"
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>kubectl delete cluster -f cluster.yml
+error: when paths, URLs, or stdin is provided as input, you may not specify resource arguments as well
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>eksctl delete cluster -f cluster.yml
+[?]  eksctl version 0.21.0
+[?]  using region ap-south-1
+[?]  deleting EKS cluster "akcluster"
+[?]  either account is not authorized to use Fargate or region ap-south-1 is not supported. Ignoring error
+[?]  cleaning up LoadBalancer services
+[?]  2 sequential tasks: { 2 parallel sub-tasks: { delete nodegroup "ng2", delete nodegroup "ng1" }, delete cluster control plane "akcluster" [async] }
+[?]  will delete stack "eksctl-akcluster-nodegroup-ng2"
+[?]  waiting for stack "eksctl-akcluster-nodegroup-ng2" to get deleted
+[?]  will delete stack "eksctl-akcluster-nodegroup-ng1"
+[?]  waiting for stack "eksctl-akcluster-nodegroup-ng1" to get deleted
+[?]  will delete stack "eksctl-akcluster-cluster"
+[?]  all cluster resources were deleted
+
+C:\Users\eaakaka\Desktop\kube_code\eks_class_code>
